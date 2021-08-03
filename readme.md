@@ -1,8 +1,21 @@
 # Axotiy API
    
 The open API for the axoty discord bot.
-    
-## Get Request(Endpoints)
+
+## Download
+
+`git clone https://github.com/ThePuddingCODE/axoty_api.git`
+
+
+## Run
+
+for developers
+`yarn run dev`
+
+for production
+`node .`
+
+## Get-Random Endpoints
 
 For Images
 http://api.axoty.xyz/random?type=images
