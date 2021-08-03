@@ -17,7 +17,7 @@ MongoClient.connect(connectionString, {
         console.log("Someone requested Axolotl " + type + ".")
 
 
-        const db = client.db('Development')
+        const db = client.db('Public')
 
         db.collection(type).find().toArray()
             .then(results => {
