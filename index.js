@@ -23,19 +23,22 @@ MongoClient.connect(connectionString, {
             .then(results => {
                 var max = results.length
                 res.send(results[Math.floor(Math.random() * max)])
+                return
             })
             .catch(error => console.error(error))
+
     })
 
     app.get("/user", (req, res) => {
         const Mongo = require("mongodb")
 
-        const db = client.db('Public')
+        const dbo = client.db('Public')
         var id = req.query.id
 
-        db.collection("users").find({ "_id": id.toString() }).toArray(function (err, result) {
+        dbo.collection("users").find({ "_id": id.toString() }).toArray(function (err, result) {
             if (err) throw err
             res.send(result)
+            return
         })
 
     })
