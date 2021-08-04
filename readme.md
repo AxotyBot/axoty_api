@@ -15,7 +15,11 @@ for developers
 for production
 `node .`
 
-## Get-Random Endpoints
+## Get Random
+
+Get Random axolotl resources.
+
+### Endpoints
 
 For Images
 http://api.axoty.xyz/random?type=images
@@ -32,11 +36,29 @@ http://api.axoty.xyz/random?type=facts
 For Users
 http://api.axoty.xyz/random?type=users
 
-## Get Response
+### Response
 
     {
         string url
         string source
         string suggester
     
+    }
+
+## Get-User 
+
+View how much axolotl media diffrent users requested.
+
+### Endpoints
+
+http://api.axoty.xyz/user?id=<id>
+
+### Response
+
+    {
+        string: id
+        int images
+        int fact
+        int memes
+        int videos
     }

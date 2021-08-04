@@ -27,6 +27,18 @@ MongoClient.connect(connectionString, {
             .catch(error => console.error(error))
     })
 
+    app.get("/user", (req, res) => {
+        const Mongo = require("mongodb")
+
+        const db = client.db('Public')
+        var id = req.query.id
+
+        db.collection("users").find({ "_id": id.toString() }).toArray(function (err, result) {
+            if (err) throw err
+            res.send(result)
+        })
+
+    })
     app.listen(3000, () => {
         console.log("API Up and running")
     })
