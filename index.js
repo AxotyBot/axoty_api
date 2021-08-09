@@ -24,11 +24,11 @@ MongoClient.connect(connectionString, {
         var ip = req.ip
 
         if (type in wl) {
-            var reobj = { date: new Date(), ip: req.ip }
+            var reobj = { date: new Date(), ip: ip, type: type }
 
             const db = client.db('Public')
 
-            console.log("[Server] Someone requested Axolotl " + type + ". " + "His IP Adress is: " + ip)
+            console.log("[Server] " + ip + " requested" + type)
             db.collection('api').insertOne(reobj, function (err, res) {
                 if (err) throw err;
                 console.log("[Server] Saved REQ to database");
