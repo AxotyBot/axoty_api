@@ -51,7 +51,7 @@ MongoClient.connect(connectionString, {
         })
 
     })
-    app.listen(3000, () => {
+    app.listen(80, () => {
         console.log("API Up and running")
     })
 
