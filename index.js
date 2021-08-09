@@ -14,10 +14,19 @@ MongoClient.connect(connectionString, {
 
     app.get("/random", (req, res) => {
         var type = req.query.type
-        console.log("Someone requested Axolotl " + type + ".")
+        var ip = req.ip
 
+        var reobj = { date: new Date(), ip: req.ip }
 
         const db = client.db('Public')
+
+        console.log("[REQ] Someone requested Axolotl " + type + ". " + "His IP Adress is: " + ip)
+        db.collection('api').insertOne(reobj, function (err, res) {
+            if (err) throw err;
+            console.log("Saved REQ to database");
+            return
+        });
+
 
         db.collection(type).find().toArray()
             .then(results => {
